@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlCE2CSV", "SqlCE2CSV.csproj", "{8D87427F-DF79-4896-BA98-FF307D189327}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlCE2CSVTester", "..\SqlCE2CSVTester\SqlCE2CSVTester.csproj", "{25E07425-2C0B-45C4-B720-15B790229347}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlCE2CSVTester", "SqlCE2CSVTester\SqlCE2CSVTester.csproj", "{25E07425-2C0B-45C4-B720-15B790229347}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

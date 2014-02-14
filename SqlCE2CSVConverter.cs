@@ -15,21 +15,23 @@ namespace SqlCE2CSV
     {
         public static void ConvertDBTableToCSV(string iQuery, string[] iColumnNames, string iConnectionString, string iFilename, bool iCreateDirectory, string iDirectoryName)
         {
-            string fullPath = iFilename;
+            string fullPath = string.Empty;
             try
             {
                 if (iCreateDirectory)
                 {
-                    fullPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, iDirectoryName);
-                    Directory.CreateDirectory(fullPath);
+                    Directory.CreateDirectory(iDirectoryName);
                 }
 
                 SqlCeDataReader Response = sqlHandler.ExecuteSQLQuery(iQuery, iConnectionString);
 
-                fullPath = Path.Combine(fullPath, iFilename);
+                fullPath = Path.Combine(iDirectoryName, SanitizeString(iFilename, new string[] { ",", "\n", "\r" }));
 
                 //Writing Column names
-                WriteLineToCSV(fullPath, iColumnNames);
+                if (iColumnNames != null && iColumnNames.Length > 0)
+                {
+                    WriteLineToCSV(fullPath, iColumnNames); 
+                }
                 while (Response.Read())
                 {
                     Object[] Data = new Object[Response.FieldCount];
